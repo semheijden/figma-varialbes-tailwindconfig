@@ -14,7 +14,7 @@ Dit proces begint met het juist definiëren van de lokale stijlen in Figma.
 Zodra de stijlen correct zijn gedefinieerd in Figma, kun je deze exporteren met de volgende plugin:
 
 - **Figma TailwindCSS Plugin**  
-  [Download hier](https://www.figma.com/community/plugin/785619431629077634/figma-tailwindcss)
+  [Bekijk hier](https://www.figma.com/community/plugin/785619431629077634/figma-tailwindcss)
 
 Deze plugin zal je helpen de stijlen te exporteren in een JSON-indeling die compatibel is met Tailwind.
 
@@ -26,12 +26,16 @@ Tijdens het gebruik van de plugin:
 2. **Kleuren groeperen:**
    - **Belangrijk:** Zorg ervoor dat de kleuren gegroepeerd worden in de laatste stap. Dit doe je door de 'Group Colors' optie op `true` te zetten (gebruik de selectbox).
 
+3. **Exporteer de Json**
+    - Export het bestand naar de root van het project, met de naam **figma.json** of copy paste de json in de huidige figma.json.
+    
+
 ---
 
 ## Project Setup
 
 ### Stap 1: Voeg de bestanden toe
-Plaats de gegenereerde `figma.json` en `extend_config.js` in de **root** van het project.
+Plaats de `figma.json` en `extend_config.js` in de **root** van het project.
 
 - `figma.json`: Dit bestand bevat de geëxporteerde stijlen.
 - `extend_config.js`: Dit bestand is verantwoordelijk voor het extensieproces van de Tailwind configuratie met de nieuwe stijlen.
@@ -51,3 +55,4 @@ module.exports = {
   },
   plugins: [],
 }
+
