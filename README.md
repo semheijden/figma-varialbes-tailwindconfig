@@ -6,10 +6,6 @@ Dit proces begint met het juist definiëren van de lokale stijlen in Figma.
 1. **Gebruik Figma Best Practices:**
    - Bekijk dit voorbeeld Figma bestand dat laat zien hoe Local Styles gedefinieerd moeten worden: 
      [Tailwind CSS UI Figma File](https://www.figma.com/community/file/768809027799962739)
-   
-2. **Belangrijke aspecten voor de Figma Styles:**
-   - Zorg ervoor dat de kleuren, typografie, schaduwen, en randstijlen netjes gegroepeerd en gedefinieerd zijn in de Local Styles. Dit helpt bij een gestroomlijnde export naar TailwindCSS variabelen.
-
 ---
 
 ## Voor Developers:
@@ -44,21 +40,14 @@ Plaats de gegenereerde `figma.json` en `extend_config.js` in de **root** van het
 Zorg ervoor dat je `tailwind.config.js` eruitziet als het onderstaande voorbeeld.
 
 ```js
-const fs = require('fs');
-const path = require('path');
+const figmaVariables = require('./extend_config.js');
 
-// Laad de gegenereerde JSON-stijlen van Figma in
-const figmaTokens = JSON.parse(fs.readFileSync(path.join(__dirname, 'figma.json'), 'utf8'));
-
-// Tailwind configuratie extensie
 module.exports = {
+  content: [],
   theme: {
     extend: {
-      colors: figmaTokens.colors,       // Voeg kleuren toe
-      fontFamily: figmaTokens.fontFamily, // Voeg lettertypes toe
-      fontSize: figmaTokens.fontSize,     // Voeg lettergroottes toe
-      boxShadow: figmaTokens.boxShadow,   // Voeg schaduwen toe
-      borderRadius: figmaTokens.borderRadius, // Voeg border-radius toe
+      ...figmaVariables.theme.extend
     },
   },
-};
+  plugins: [],
+}
